@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-app-latest
+spec:
+  selector:
+    matchLabels:
+      greeting: hello
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        greeting: hello
+    spec:
+      containers:
+      - image: golang-docker-example:latest
+        name: golang-docker-example
+        imagePullPolicy: Never
+        volumeMounts:
+        - mountPath: "/logs"
+          name: log-volume
+      volumes:
+      - name: log-volume
+        hostPath:
+          path: '/pradhu'
