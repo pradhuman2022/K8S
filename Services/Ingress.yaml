@@ -17,3 +17,6 @@ spec:
             name: go-service
             port:
               number: 60000
+#Apply Ingress Controller, only Ingress resource can't do anything. Ingress Controller implements ingress resource and provide address, nodeport
+#correponding ingress controller.
+# testing: curl http://localhost/awesome
