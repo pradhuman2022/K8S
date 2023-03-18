@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: go-probing-service
+spec:
+  containers:
+    - image: go-service-probing:latest
+      name: go-service-probing-container
+      imagePullPolicy: Never
+      livenessProbe:
+        httpGet:
+          path: /liveness
+          port: 8000
+        initialDelaySeconds: 30
